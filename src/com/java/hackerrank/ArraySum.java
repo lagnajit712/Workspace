@@ -1,3 +1,5 @@
+package com.java.hackerrank;
+
 import java.io.*;
 import java.math.*;
 import java.text.*;

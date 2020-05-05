@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 public class Beyblade {
 
@@ -30,9 +32,17 @@ public class Beyblade {
         for(j=0;j<teamSize;j++){
           opponent_revolution_team[j] = in.nextInt();
         }
+        Arrays.sort(g_revolution_team);
+        Arrays.sort(opponent_revolution_team);
         //System.out.println("You entered string2  " + Arrays.toString(opponent_revolution_team));
         //System.out.println("Max fight won by team G_Revolution " + getMaxWinForGRevolution(g_revolution_team,opponent_revolution_team,teamSize));
         System.out.println(getMaxWinForGRevolution(g_revolution_team,opponent_revolution_team,teamSize));
+        List<Integer> grevlist=IntStream.of(g_revolution_team)
+            .boxed()
+            .collect(Collectors.toList());
+        List<Integer> oppntlist=IntStream.of(opponent_revolution_team)
+            .boxed()
+            .collect(Collectors.toList());
         numberOfTestCase--;
       }
     }
@@ -54,5 +64,6 @@ public class Beyblade {
       }
       return maxWin;
     }
+
   }
 
